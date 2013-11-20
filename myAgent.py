@@ -44,17 +44,7 @@ class AgentOfEntropy(agent.Agent):
 		it the score is calculated such, that the word has a desired fraction of
 		consonants and vowels.
 		"""
-		vowels = 0.0
-		consonants = 0.0
-		vowelstr = "aeiou"
-		for letter in word:
-			if letter in vowelstr:
-				vowels += 1
-			else:
-				consonants += 1
-		total = vowels + consonants
-		scr = 1 - abs(self.vowelWeight - (vowels/total)) - abs(self.consonantWeight - (consonants/total))
-		return scr
+                return 0
 		
 	def generate(self):
 		"""
@@ -67,7 +57,7 @@ class AgentOfEntropy(agent.Agent):
                 wordends_soft = [ "ble", "blie", "flie", "bdy", "gdy", "gnay", "tam" ];
                 wordends_hard = [ "st", "blut", "twip", "plup", "plop", "knip", "bup" ]; 
 
-                firstsyllable = choice(wordstarts)
+                firstsyllable = random.choice(wordstarts)
                 word += firstsyllable + random.choice(wordends_soft) + ' ' + firstsyllable + random.choice(wordends_soft) + ' ' + random.choice(wordstarts) + random.choice(wordends_soft) + ' ' + random.choice(wordstarts) + random.choice(wordends_hard)
 		explanation = "I find the attribute phrase vowels to be as high as I prefer"
 		## If the word is ready, propose it to the server
@@ -78,16 +68,4 @@ class AgentOfEntropy(agent.Agent):
 		adapt implements a sample function which changes the self.generateVowel
 		according to the feedback of other agents.
 		"""
-		vowelsCount = 0.0
-		consCount = 0.0
-		vowels = "aeiou"
-		consonants = "bcdfghjklmnpqrstvxyz"
-		for f in feedback:
-			for c in f.word:
-				if c in vowels:
-					vowelsCount += 1*f.score
-				else:
-					consCount += 1*f.score
-		if vowelsCount + consCount != 0:
-			self.generateVowel = vowelsCount/(vowelsCount + consCount)
-		print "I generate vowels with frequency " + str(self.generateVowel)
+                return 0

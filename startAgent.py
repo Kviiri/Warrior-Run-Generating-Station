@@ -1,4 +1,4 @@
-import agentVowel
+import myAgent
 import sys
 
-a = agentVowel.myAgent("TeamName_Agent" + sys.argv[1])
+a = myAgent.AgentOfEntropy("TeamName_Agent" + sys.argv[1])

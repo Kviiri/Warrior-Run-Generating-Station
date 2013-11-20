@@ -1,17 +1,14 @@
+#kviiri's awesome chitty chatty secret agent
+
 import agent
 import random
 import time
 from agent import Feedback
 
-class VowelAgent(agent.Agent):
-	"""
-    VowelAgent implements a sample functional agent.
-    """
+class AgentOfEntropy(agent.Agent):
 	def __init__(self, name):
 		# Anything you want to initialize
-		self.vowelWeight = random.random()
-		self.consonantWeight = random.random()
-		self.generateVowel = 0.5
+		
 		agent.Agent.__init__(self, name)
 		
 	def lifeCycle(self):
@@ -65,16 +62,13 @@ class VowelAgent(agent.Agent):
 		length. The system makes a distinction between consonants and vowels and generates
 		words by using a self.generateVowel variable, which adapts to the feedback.
 		"""
-		strlen = random.randint(1,10)
 		word = ""
-		vowels = "aeiou"
-		consonants = "bcdfghjklmnpqrstvxyz"
-		for i in range(strlen):
-			r = random.random()
-			if r < self.generateVowel:
-				word += vowels[random.randint(0,len(vowels)-1)]
-			else:
-				word += consonants[random.randint(0,len(consonants)-1)]
+		wordstarts = [ "fee", "gar", "boo", "goo", "zor", "zie", "flu" ];
+                wordends_soft = [ "ble", "blie", "flie", "bdy", "gdy", "gnay", "tam" ];
+                wordends_hard = [ "st", "blut", "twip", "plup", "plop", "knip", "bup" ]; 
+
+                firstsyllable = choice(wordstarts)
+                word += firstsyllable + choice(wordends_soft) + ' ' + firstsyllable + choice(wordends_soft) + ' ' + choice(wordstarts) + choice(wordends_soft) + ' ' + choice(wordstarts) + choice(wordends_hard)
 		explanation = "I find the attribute phrase vowels to be as high as I prefer"
 		## If the word is ready, propose it to the server
 		self.propose(word, explanation)

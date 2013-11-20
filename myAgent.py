@@ -68,7 +68,7 @@ class AgentOfEntropy(agent.Agent):
                 wordends_hard = [ "st", "blut", "twip", "plup", "plop", "knip", "bup" ]; 
 
                 firstsyllable = choice(wordstarts)
-                word += firstsyllable + choice(wordends_soft) + ' ' + firstsyllable + choice(wordends_soft) + ' ' + choice(wordstarts) + choice(wordends_soft) + ' ' + choice(wordstarts) + choice(wordends_hard)
+                word += firstsyllable + random.choice(wordends_soft) + ' ' + firstsyllable + random.choice(wordends_soft) + ' ' + random.choice(wordstarts) + random.choice(wordends_soft) + ' ' + random.choice(wordstarts) + random.choice(wordends_hard)
 		explanation = "I find the attribute phrase vowels to be as high as I prefer"
 		## If the word is ready, propose it to the server
 		self.propose(word, explanation)

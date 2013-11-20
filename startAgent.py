@@ -1,4 +1,4 @@
 import agentVowel
 import sys
 
-a = agentVowel.VowelAgent("TeamName_Agent" + sys.argv[1])
+a = agentVowel.myAgent("TeamName_Agent" + sys.argv[1])

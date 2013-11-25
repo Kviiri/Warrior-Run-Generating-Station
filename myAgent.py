@@ -26,12 +26,12 @@ class AgentOfEntropy(agent.Agent):
 		return 0               
 		
 	def generate(self):
-		sent1 = random.choice(nltk.corpus.brown.tagged_sents())
-                sent2 = random.choice(nltk.corpus.brown.tagged_sents())
+		sent1 = random.choice(nltk.corpus.genesis.tagged_sents())
+                sent2 = random.choice(nltk.corpus.genesis.tagged_sents())
                 ret = ""
                 for element in sent1:
                         if element[0] in string.punctuation:
-                                continue
+                                ret = ret.strip()
                         opponent = random.choice(sent2)
                         if(element[1] != opponent[1]):
                                 ret += element[0]
@@ -39,7 +39,6 @@ class AgentOfEntropy(agent.Agent):
                                 ret += opponent[0]
                         ret += " "
 		explanation = "I find the attribute spirituality to be as high as I prefer"
-		## If the word is ready, propose it to the server
 		self.propose(ret.strip(), explanation)
 		
 	def adapt(self, feedback):

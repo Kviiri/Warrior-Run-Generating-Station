@@ -26,8 +26,8 @@ class AgentOfEntropy(agent.Agent):
 		return 0               
 		
 	def generate(self):
-		sent1 = random.choice(nltk.corpus.genesis.tagged_sents())
-                sent2 = random.choice(nltk.corpus.genesis.tagged_sents())
+		sent1 = random.choice(nltk.corpus.brown.tagged_sents())
+                sent2 = random.choice(nltk.corpus.brown.tagged_sents())
                 ret = ""
                 for element in sent1:
                         if element[0] in string.punctuation:
